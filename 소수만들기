@@ -17,3 +17,4 @@ def solution(nums):
             count += 1 # 소수가 되는 경우의 개수를 하나씩 더함
             
     return count # 소수가 되는 경우의 수
+  
