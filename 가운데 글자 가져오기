@@ -1,0 +1,16 @@
+ def solution(s):
+    answer = ''
+    g = len(s) // 2 
+    if len(s) % 2 == 0: # 배열의 길이가 짝수라면 
+        answer += s[g-1:g+1] 
+        return answer # 가운데 2글자 리턴
+    answer += s[g] 
+    return answer # 홀수라면 가운데 1글자 리턴
+    
+    
+    
+    ###################한줄만에 구현한 코드(참고용)#####################
+    
+    def string_middle(str):
+
+      return str[(len(str)-1)//2:len(str)//2+1] # if문으로 따로 나누지 않고 인덱스로 글자를 가져옴..!
