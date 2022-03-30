@@ -1,0 +1,6 @@
+from collections import Counter
+def solution(participant, completion):
+    result = Counter(participant) - Counter(completion) # Counter를 사용하여 리스트 간의 뺄셈을 구현 / 항목의 개수를 계산
+    sol = list(result.keys())
+    a = ''.join(map(str,sol))
+    return a
