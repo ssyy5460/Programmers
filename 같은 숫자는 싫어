@@ -1,0 +1,11 @@
+def solution(arr):
+    answer = []
+    for i in range(len(arr)): 
+        if i == 0 : 
+            answer.append(arr[0]) # 첫 인덱스라면 arr[0] 추가해주기
+        elif arr[i] != arr[i-1]: # 전 인덱스와 현재 인덱스가 같지 않다면
+            answer.append(arr[i]) # 해당인덱스 추가해주기
+
+    return answer # 조건문을 통해 추가된 배열 리턴
+    
+    ex) arr = [1, 1, 3, 3, 0, 1, 1] 이면 [1, 3, 0, 1] 을 return
