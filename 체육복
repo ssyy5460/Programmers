@@ -1,0 +1,11 @@
+def solution(n, lost, reserve):
+    set_reserve = set(reserve) - set(lost) # 중복제거 후 동일한 값 제거
+    set_lost = set(lost) - set(reserve) # 중복제거 후 동일한 값 제거
+
+    for i in set_reserve:
+        if i-1 in set_lost: # 왼쪽 빌려줌
+            set_lost.remove(i-1) # 빌려준 친구 빼기
+
+        elif i+1 in set_lost: # 오른쪽 빌려줌
+            set_lost.remove(i+1) # 빌려준 친구 빼기
+    return n - len(set_lost)
