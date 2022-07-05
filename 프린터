@@ -1,0 +1,18 @@
+#  큐
+
+from collections import deque
+def solution(priorities, location):
+    queue = deque([(i,p) for i,p in enumerate(priorities)]) # popleft() 는 list 에서 작동 X , deque() 사용
+    sorted_p = sorted(priorities)
+    ans = 0
+    
+    while True:
+        i,p = queue.popleft()
+        if queue and p < sorted_p[-1]: # 우선순위가 있을 경우 
+            queue.append((i,p)) # 뒤에 삽입
+            
+        else:
+            ans += 1
+            sorted_p.pop()
+            if location == i: # 인덱스의 위치가 location과 같을 경우
+                return ans
