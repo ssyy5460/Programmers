@@ -1,4 +1,4 @@
-#  큐
+#  큐 
 
 from collections import deque
 def solution(priorities, location):
