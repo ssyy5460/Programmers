@@ -1,0 +1,14 @@
+def solution(N, stages):
+    # answer dictionary 생성
+    answer = {}
+    length = len(stages)
+    for stage in range(1,N+1):
+        if length != 0:
+            count = stages.count(stage)
+            answer[stage] = count / length
+            length -= count
+        else:
+            answer[stage] = 0
+            
+            
+    return sorted(answer, key = lambda x : answer[x],reverse = True) # value(count/length)로 정렬하되 키값을 나타냄
