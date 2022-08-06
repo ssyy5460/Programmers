@@ -1,0 +1,19 @@
+def solution(board, moves):
+    answer = 0
+    stack = []
+    
+    for move in moves:
+        for i in range(len(board)):
+            if board[i][move-1] != 0:
+                stack.append(board[i][move-1])
+                board[i][move-1] = 0 # 방문처리
+                
+                if len(stack) > 1: # 1보다커야 2개 요소 삭제 가능
+                    if stack[-1] == stack[-2]:
+                        print(stack)
+                        stack.pop()
+                        stack.pop()
+                        answer += 2
+                break # stack의 길이가 1보다 크지 않으면 다음 경우로
+                
+    return answer
