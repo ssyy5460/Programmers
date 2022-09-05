@@ -1,0 +1,20 @@
+def solution(survey, choices):
+    answer = ''
+    dict_choices = {'R':0, 'T':0, 'C':0,'F':0,
+                   'J':0, 'M':0,'A':0,'N':0}
+    
+    for i in range(len(survey)):
+        l = survey[i][0]
+        r = survey[i][1]
+        
+        if choices[i] > 4:
+            dict_choices[r] += choices[i] - 4
+        elif choices[i] < 4:
+            dict_choices[l] += 4 - choices[i]
+    
+    answer += 'R' if dict_choices['R'] >= dict_choices['T'] else 'T'
+    answer += 'C' if dict_choices['C'] >= dict_choices['F'] else 'F'
+    answer += 'J' if dict_choices['J'] >= dict_choices['M'] else 'M'
+    answer += 'A' if dict_choices['A'] >= dict_choices['N'] else 'N'
+    
+    return answer
