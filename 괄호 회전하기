@@ -1,0 +1,33 @@
+def solution(s):
+    
+    result = 0
+    answer = 0
+    
+    dict = {"]": "[", ")": "(", "}": "{"}
+    while answer != len(s):
+        stack = []
+        s = s[1:len(s)] + s[0]
+        ans = True
+        
+        for val in s:
+            if val == '{' or val == '(' or val =='[':
+                stack.append(val)
+            else:
+                if len(stack) == 0:
+                    ans = False
+                    break
+                if dict[val] == stack[len(stack)-1]:
+                    stack.pop()
+                    
+                else:
+                    ans = False
+                    break
+                    
+        if len(stack) != 0:
+            ans = False
+        if ans == True:
+            result += 1
+        answer += 1
+        
+    return result
+    
